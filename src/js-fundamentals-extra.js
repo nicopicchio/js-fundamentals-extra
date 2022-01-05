@@ -133,11 +133,11 @@ const transactionChecker = (array, startBal, overdraft) => {
 //
 // TODO: write code below
 
-const filmGenres = (filmObject, filmType) => {
+const filmGenres = (array, filmType) => {
   const filmArray = []
-  for (let i = 0; i < filmObject.length; i++) {
-    if (filmObject[i].genres.includes(filmType)) {
-      filmArray.push(filmObject[i].name)
+  for (element of array) {
+    if (element.genres.includes(filmType)) {
+      filmArray.push(element.name)
     }
   }
   return filmArray
