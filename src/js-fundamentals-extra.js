@@ -8,6 +8,7 @@
 //
 // TODO: write code below
 
+const secondsInHours = hours => hours * 3600
 
 
 // MilesTravelled
@@ -23,6 +24,7 @@
 //
 // TODO: write code below
 
+const milesTravelled = (mph, minutes) => Math.ceil((minutes / 60) * mph)
 
 
 // KilometersToMiles
@@ -37,7 +39,7 @@
 //
 // TODO: write code below
 
-
+const KilometersToMiles = kms => Math.round(kms / 1.6)
 
 // MakeSentence
 //
@@ -53,6 +55,12 @@
 //
 // TODO: write code below
 
+const makeSentence = string => {
+  if (string[string.length - 1] === '.' || string[string.length - 1] === '?' || string[string.length - 1] === '!') {
+    return `${string[0].toUpperCase()}${string.substring(1)}`
+  }
+  return `${string[0].toUpperCase()}${string.substring(1)}.`
+}
 
 
 // FileExtension
@@ -67,6 +75,10 @@
 //
 // TODO: write code below
 
+const fileExtension = string => {
+  if (string.lastIndexOf('.') === -1) return ''
+  return string.substring(string.lastIndexOf('.') + 1)
+}
 
 
 // Range
@@ -80,6 +92,7 @@
 //
 // TODO: write code below
 
+const range = array => Math.max(...array) - Math.min(...array)
 
 
 // CheckTransactions
@@ -99,7 +112,13 @@
 //
 // TODO: write code below
 
-
+const transactionChecker = (array, startBal, overdraft) => {
+  const sumFunction = (num1, num2) => num1 + num2
+  let transactions = array.reduce(sumFunction)
+  let availableBalance = transactions + startBal + overdraft
+  if (availableBalance < 0) return false
+  return true
+}
 
 // FilmsInGenre
 //
@@ -114,31 +133,39 @@
 //
 // TODO: write code below
 
-
+const filmGenres = (filmObject, filmType) => {
+  const filmArray = []
+  for (let i = 0; i < filmObject.length; i++) {
+    if (filmObject[i].genres.includes(filmType)) {
+      filmArray.push(filmObject[i].name)
+    }
+  }
+  return filmArray
+}
 
 // TODO: change undefined to be the name of the functions you defined
 module.exports = {
   //SecondsInHours
-  a: undefined,
+  a: secondsInHours,
 
   //MilesTravelled,
-  b: undefined,  
+  b: milesTravelled,
 
   //KilometersToMiles,
-  c: undefined, 
+  c: KilometersToMiles,
 
   //MakeSentence
-  d: undefined, 
+  d: makeSentence, 
 
   //FileExtension
-  e: undefined,
+  e: fileExtension,
 
   //Range
-  f: undefined,
+  f: range,
 
   //CheckTransactions
-  g: undefined,
+  g: transactionChecker,
 
   //FilmsInGenre
-  h: undefined,
+  h: filmGenres,
 }
