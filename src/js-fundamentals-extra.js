@@ -39,7 +39,7 @@ const milesTravelled = (mph, minutes) => Math.ceil((minutes / 60) * mph)
 //
 // TODO: write code below
 
-const KilometersToMiles = kms => Math.round(kms / 1.6)
+const kilometersToMiles = kms => Math.round(kms / 1.6)
 
 // MakeSentence
 //
@@ -114,8 +114,8 @@ const range = array => Math.max(...array) - Math.min(...array)
 
 const transactionChecker = (array, startBal, overdraft) => {
   const sumFunction = (num1, num2) => num1 + num2
-  let transactions = array.reduce(sumFunction)
-  let availableBalance = transactions + startBal + overdraft
+  const transactions = array.reduce(sumFunction)
+  const availableBalance = transactions + startBal + overdraft
   if (availableBalance < 0) return false
   return true
 }
@@ -151,8 +151,8 @@ module.exports = {
   //MilesTravelled,
   b: milesTravelled,
 
-  //KilometersToMiles,
-  c: KilometersToMiles,
+  //KilometersToMiles
+  c: kilometersToMiles,
 
   //MakeSentence
   d: makeSentence, 
