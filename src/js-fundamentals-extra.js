@@ -113,8 +113,7 @@ const range = array => Math.max(...array) - Math.min(...array)
 // TODO: write code below
 
 const transactionChecker = (array, startBal, overdraft) => {
-  const sumFunction = (num1, num2) => num1 + num2
-  const transactions = array.reduce(sumFunction)
+  const transactions = array.reduce((num1, num2) => num1 + num2)
   const availableBalance = transactions + startBal + overdraft
   if (availableBalance < 0) return false
   return true
