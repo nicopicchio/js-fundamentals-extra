@@ -112,8 +112,8 @@ const range = array => Math.max(...array) - Math.min(...array)
 //
 // TODO: write code below
 
-const transactionChecker = (array, startBal, overdraft) => {
-  const transactions = array.reduce((num1, num2) => num1 + num2)
+const transactionChecker = (statement, startBal, overdraft) => {
+  const transactions = statement.reduce((num1, num2) => num1 + num2)
   const availableBalance = transactions + startBal + overdraft
   if (availableBalance < 0) return false
   return true
@@ -132,9 +132,9 @@ const transactionChecker = (array, startBal, overdraft) => {
 //
 // TODO: write code below
 
-const filmGenres = (array, filmType) => {
+const filmGenres = (filmLibrary, filmType) => {
   const filmArray = []
-  for (element of array) {
+  for (element of filmLibrary) {
     if (element.genres.includes(filmType)) {
       filmArray.push(element.name)
     }
